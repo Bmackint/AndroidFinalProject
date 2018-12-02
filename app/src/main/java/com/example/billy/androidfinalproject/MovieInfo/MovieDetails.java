@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -89,6 +90,8 @@ public class MovieDetails extends Activity {
         image = BitmapFactory.decodeFile(imagePath + ml.get(0)+ ".png");
         movieImageView.setImageBitmap(image);
 
+
+
         removeBtn.setOnClickListener((e)->{
             MovieDatabaseHelper moviedbh = new MovieDatabaseHelper(this);
             SQLiteDatabase db = moviedbh.getWritableDatabase();
@@ -102,6 +105,12 @@ public class MovieDetails extends Activity {
          //   db.removeRow
         });
 
+    }
+    private class DeleteUndoListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v){
+
+        }
     }
     public void dbMovieInfo(ArrayList<String> al, int index){
         MovieDatabaseHelper moviedbh = new MovieDatabaseHelper(this);

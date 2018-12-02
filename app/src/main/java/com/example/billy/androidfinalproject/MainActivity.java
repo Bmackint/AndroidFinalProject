@@ -12,6 +12,8 @@ import com.example.billy.androidfinalproject.MovieInfo.MovieInfoMainActivity;
 public class MainActivity extends Activity {
     protected final String ACTIVITY_NAME = "MainActivity";
     Button movieInfoButton;
+    Button nutritionInfoButton;
+    Button newsInfoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         movieInfoButton = (Button) findViewById(R.id.movie_info_app);
+        nutritionInfoButton = (Button) findViewById(R.id.nutrition_info_app);
+        newsInfoButton = (Button) findViewById(R.id.nutrition_info_app);
 
         movieInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
