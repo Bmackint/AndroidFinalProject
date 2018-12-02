@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.billy.androidfinalproject.R;
 
@@ -101,10 +102,11 @@ public class MovieInfoMainActivity extends Activity {
         clearSearch.setOnClickListener((e)->{
             clearSearch();
         });
-        MovieDatabaseHelper dbHelper = new MovieDatabaseHelper(this);
-        saveMovie.setOnClickListener((e)->{
-            SQLiteDatabase db = dbHelper.getWritableDatabase();
 
+        saveMovie.setOnClickListener((e)->{
+
+            MovieDatabaseHelper dbHelper = new MovieDatabaseHelper(this);
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
             if(!db.isOpen()) {
                 db.isOpen();
             }
@@ -119,7 +121,8 @@ public class MovieInfoMainActivity extends Activity {
                 db.insert(dbHelper.getTableName(),null, newRow);
                 db.close();
 
-
+                Toast saveToast = Toast.makeText(this, movieTitle + " saved", Toast.LENGTH_SHORT);
+                saveToast.show();
         });
         myMovies.setOnClickListener((e)->{
             clearSearch();
