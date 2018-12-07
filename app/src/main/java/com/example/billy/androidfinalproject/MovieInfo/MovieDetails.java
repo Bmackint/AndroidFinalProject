@@ -36,6 +36,7 @@ public class MovieDetails extends Activity {
 
     private Bitmap image;
 
+
     private String movieTitle;
     private String movieYear;
     private String movieRating;
@@ -66,7 +67,10 @@ public class MovieDetails extends Activity {
         removeBtn = (Button) findViewById(R.id.remove_from_favourites_btn);
 
        //MovieDatabaseHelper db = new MovieDatabaseHelper(this);
-
+        /**
+         * retrieves movie name from bundle previous activity, selected list item
+         * used to find movie in db
+         */
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             movieTitle = bundle.get("MovieName").toString();
@@ -91,7 +95,9 @@ public class MovieDetails extends Activity {
         movieImageView.setImageBitmap(image);
 
 
-
+        /**
+         * removes movie from favourite list and db, returns user to search menu
+         */
         removeBtn.setOnClickListener((e)->{
             MovieDatabaseHelper moviedbh = new MovieDatabaseHelper(this);
             SQLiteDatabase db = moviedbh.getWritableDatabase();
@@ -112,6 +118,12 @@ public class MovieDetails extends Activity {
 
         }
     }
+
+    /**
+     * puts all of the movie details into an arraylist to be set to textViews
+     * @param al
+     * @param index
+     */
     public void dbMovieInfo(ArrayList<String> al, int index){
         MovieDatabaseHelper moviedbh = new MovieDatabaseHelper(this);
         SQLiteDatabase db = moviedbh.getWritableDatabase();

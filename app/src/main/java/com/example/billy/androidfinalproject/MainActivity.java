@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.billy.androidfinalproject.MovieInfo.MovieInfoMainActivity;
+import com.example.billy.androidfinalproject.NutritionInfo.Nutrition_Main;
 
 public class MainActivity extends Activity {
     protected final String ACTIVITY_NAME = "MainActivity";
@@ -30,6 +31,12 @@ public class MainActivity extends Activity {
                 Intent nextScreen = new Intent(MainActivity.this, MovieInfoMainActivity.class);
                 startActivity(nextScreen);
             }
+        });
+
+
+        nutritionInfoButton.setOnClickListener((e)->{
+            Intent nextScreen = new Intent(MainActivity.this, Nutrition_Main.class);
+            startActivity(nextScreen);
         });
     }
     public void onResume(){

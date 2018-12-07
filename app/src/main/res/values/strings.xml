@@ -6,4 +6,9 @@
     <string name="clear_movie_search_button">Clear Movie</string>
     <string name="save_movie_button">Save Movie</string>
     <string name="movie_info_app">Movie Info App</string>
+
+
+
+    <string name="search">Go!</string>
+    <string name="title_activity_favourites">Favourites</string>
 </resources>
