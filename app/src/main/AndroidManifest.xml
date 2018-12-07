@@ -12,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".NutritionInfo.Favourites"/>
+
+        <activity android:name=".NutritionInfo.Nutrition_Main"/>
+        <activity android:name=".NutritionInfo.search_result"/>
+
         <activity android:name=".MovieInfo.MovieDetails"/>
         <activity android:name=".MovieInfo.MovieMenu"/>
         <activity android:name=".MovieInfo.MovieStats"/>

@@ -118,6 +118,9 @@ public class MovieInfoMainActivity extends Activity {
             clearSearch();
         });
 
+        /**
+         * saves movie to database
+         */
         saveMovie.setOnClickListener((e)->{
 
             MovieDatabaseHelper dbHelper = new MovieDatabaseHelper(this);
@@ -139,6 +142,9 @@ public class MovieInfoMainActivity extends Activity {
                 Toast saveToast = Toast.makeText(this, movieTitle + " saved", Toast.LENGTH_SHORT);
                 saveToast.show();
         });
+        /**
+         * clears search edit text, then starts Mymovies/favourites activity
+         */
         myMovies.setOnClickListener((e)->{
             clearSearch();
             Log.i(ACTIVITY_NAME, "User clicked 'my movies'");
@@ -147,6 +153,9 @@ public class MovieInfoMainActivity extends Activity {
         });
     }
 
+    /**
+     * async task that quesries website for movie information
+     */
     private class MovieQuery extends AsyncTask<String, Integer, String> {
 
 
@@ -170,6 +179,9 @@ public class MovieInfoMainActivity extends Activity {
                 parser.setInput(in, "UTF-8");
 
            //     String value;
+                /**
+                 * finds correct tags and data associated with them
+                 */
                 while(parser.getEventType() !=XmlPullParser.END_DOCUMENT) {
 
 
@@ -201,7 +213,9 @@ public class MovieInfoMainActivity extends Activity {
                     parser.next();
 
                 }
-
+                /**
+                 * checks in movie poster is saved to device, if not saves movie poster
+                 */
                 if(fileExistance(movieTitle + ".png")){
                     FileInputStream fis = null;
                     try {
@@ -232,11 +246,20 @@ public class MovieInfoMainActivity extends Activity {
             }
             return "";
         }
+
+        /**
+         * updated progress bar as movie loads
+         * @param args
+         */
         public void onProgressUpdate(Integer ... args){
             pb.setProgress(args[0]);
             pb.setVisibility(View.VISIBLE);
         }
 
+        /**
+         * sets all correct values found from xml query to Textviews
+         * @param result
+         */
         public void onPostExecute(String result) {
             try {
                 movieImageView.setImageBitmap(image);
@@ -252,6 +275,10 @@ public class MovieInfoMainActivity extends Activity {
             }
         }
     }
+
+    /**
+     * used to clear all textview, bitmap image and edit text
+     */
     public void clearSearch(){
         movieSearchET.setText("");
         movieImageView.setImageBitmap(null);

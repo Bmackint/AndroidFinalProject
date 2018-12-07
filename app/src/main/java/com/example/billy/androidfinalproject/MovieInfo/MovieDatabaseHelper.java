@@ -1,11 +1,9 @@
 package com.example.billy.androidfinalproject.MovieInfo;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Bitmap;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -65,7 +63,11 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
 
 
     }
-
+    /**
+     * methos to connect and sort database instances to find shortest movie
+     * @param db
+     * @return arraylist: shortest movie title
+     */
     public ArrayList getShortestMovie(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         Cursor c = db.rawQuery("SELECT movie_title, movie_runtime FROM movies_table", null);
@@ -95,6 +97,11 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
         }
         return lengths;
     }
+    /**
+     * methos to connect and sort database instances to find longest movie
+     * @param db
+     * @return arraylist: longest movie and title
+     * */
     public ArrayList getLongestMovie(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         Cursor c = db.rawQuery("SELECT movie_title, movie_runtime FROM movies_table", null);
@@ -124,6 +131,11 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
         }
         return lengths;
     }
+    /**
+     * methos to connect and sort database instances to find average movie length
+     * @param db
+     * @return arraylist: average movie length
+     */
     public int averageMovieLength(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         int totalLen = 0;
@@ -144,7 +156,11 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
         }
         return totalLen/lengths.size();
     }
-
+    /**
+     * methos to connect and sort database instances to find average year of movie
+     * @param db
+     * @return arraylist: average movie title year
+     */
     public int averageMovieYear(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         int totalLen = 0;
@@ -165,7 +181,11 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
         }
         return totalLen/lengths.size();
     }
-
+    /**
+     * methos to connect and sort database instances to find newest movie
+     * @param db
+     * @return arraylist: newest movie title and year
+     */
     public ArrayList getNewestMovie(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         Cursor c = db.rawQuery("SELECT movie_title, movie_year FROM movies_table", null);
@@ -195,6 +215,12 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
         }
         return lengths;
     }
+
+    /**
+     * methos to connect and sort database instances to find oldest movie
+     * @param db
+     * @return arraylist: oldest movie title and year
+     */
     public ArrayList getOldestMovie(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         Cursor c = db.rawQuery("SELECT movie_title, movie_year FROM movies_table", null);

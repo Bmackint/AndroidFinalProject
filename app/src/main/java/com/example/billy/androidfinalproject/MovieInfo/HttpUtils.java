@@ -9,8 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HttpUtils {
-
-        public Bitmap getImage(URL url) {
+    /**
+     * returns a bitmap from URL, get(String image) is chained
+     * @param url
+     * @return bitmap
+     */
+    public Bitmap getImage(URL url) {
             HttpURLConnection connection = null;
             try {
                 connection = (HttpURLConnection) url.openConnection();
@@ -30,7 +34,13 @@ public class HttpUtils {
                 }
             }
         }
-        public Bitmap getImage(String urlString) {
+
+    /**
+     * converts String url to URL, chains
+     * @param urlString
+     * @return
+     */
+    public Bitmap getImage(String urlString) {
             try {
                 URL url = new URL(urlString);
                 Log.i("url to string", url.toString());
