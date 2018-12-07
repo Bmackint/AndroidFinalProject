@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <Item
+        android:id="@+id/movie_action_settings"
+        android:title="MovieApp"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+
+    />
+    <Item
+        android:id="@+id/action_one"
+        android:title="One"
+        android:icon="@drawable/film_icon"
+        android:orderInCategory="400"
+        app:showAsAction="always"
+    />
+
+</menu>

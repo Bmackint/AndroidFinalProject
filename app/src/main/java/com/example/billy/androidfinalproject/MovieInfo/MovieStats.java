@@ -13,6 +13,8 @@ TextView shortestMovie;
 TextView longestMovie;
 TextView averageMovie;
 TextView averageYear;
+TextView shortestYear;
+TextView longestYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,10 @@ TextView averageYear;
         shortestMovie = (TextView) findViewById(R.id.shortest_movie_stat);
         longestMovie = (TextView) findViewById(R.id.longest_movie_stat);
         averageMovie = (TextView) findViewById(R.id.average_movie_stat);
+        shortestYear = (TextView) findViewById(R.id.shortest_year_stat);
+        longestYear = (TextView) findViewById(R.id.longest_year_stat) ;
         averageYear = (TextView) findViewById(R.id.average_year_stat);
+
 
 
 
@@ -32,10 +37,12 @@ TextView averageYear;
 
        // mdh.getShortestMovie(db);
 
-        shortestMovie.setText("Shortest Movie: " + mdh.getShortestMovie(db) + " minutes");
-        longestMovie.setText("Longest Movie: " + mdh.getLongeestMovie(db) + " minutes");
+        shortestMovie.setText("Shortest Movie: " + mdh.getShortestMovie(db).get(0) + ", " + mdh.getShortestMovie(db).get(1) + " minutes");
+        longestMovie.setText("Longest Movie: " + mdh.getLongestMovie(db).get(0) + ", " + mdh.getLongestMovie(db).get(1) + " minutes");
         averageMovie.setText("Average length of saved Movies: " + mdh.averageMovieLength(db) + " minutes");
         //mdh.averageMovieLength(db);
+        shortestYear.setText("Oldest Movie: " + mdh.getNewestMovie(db).get(0)+ " ," + mdh.getNewestMovie(db).get(1));
+        longestYear.setText("Newest Movie: " + mdh.getOldestMovie(db).get(0)+ " ," + mdh.getOldestMovie(db).get(1));
         averageYear.setText("Average Year of saved Movies: " + mdh.averageMovieYear(db));
 
     }
