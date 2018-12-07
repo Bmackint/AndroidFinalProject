@@ -18,6 +18,8 @@
         <activity android:name=".NutritionInfo.Nutrition_Main"/>
         <activity android:name=".NutritionInfo.search_result"/>
 
+        <activity android:name=".CBCReader.CBCNewsreaderMainActivity"/>
+
         <activity android:name=".MovieInfo.MovieDetails"/>
         <activity android:name=".MovieInfo.MovieMenu"/>
         <activity android:name=".MovieInfo.MovieStats"/>

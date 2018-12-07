@@ -38,6 +38,12 @@ public class MainActivity extends Activity {
             Intent nextScreen = new Intent(MainActivity.this, Nutrition_Main.class);
             startActivity(nextScreen);
         });
+        /*
+        newsInfoButton.setOnClickListener((e)->{
+            Intent nextScreen = new Intent(MainActivity.this, CBCNewsreaderMainActivity.class);
+            startActivity(nextScreen);
+        });
+        */
     }
     public void onResume(){
         super.onResume();
