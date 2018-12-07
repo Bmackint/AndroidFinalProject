@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My Movies stats: "/>
+        android:text="My Movie's stats: "/>
     <TextView
         android:id="@+id/shortest_movie_stat"
         android:layout_width="match_parent"

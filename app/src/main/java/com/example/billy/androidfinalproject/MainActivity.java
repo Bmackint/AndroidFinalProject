@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.billy.androidfinalproject.CBCReader.CBCNewsreaderMainActivity;
 import com.example.billy.androidfinalproject.MovieInfo.MovieInfoMainActivity;
 
 public class MainActivity extends Activity {
@@ -22,13 +23,21 @@ public class MainActivity extends Activity {
 
         movieInfoButton = (Button) findViewById(R.id.movie_info_app);
         nutritionInfoButton = (Button) findViewById(R.id.nutrition_info_app);
-        newsInfoButton = (Button) findViewById(R.id.nutrition_info_app);
+        newsInfoButton = (Button) findViewById(R.id.news_info_app);
 
         movieInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextScreen = new Intent(MainActivity.this, MovieInfoMainActivity.class);
                 startActivity(nextScreen);
+            }
+        });
+
+        newsInfoButton.setOnClickListener(new View.OnClickListener()    {
+            @Override
+            public void onClick(View v) {
+                Intent allTheNewsThatsFitToPrint = new Intent(MainActivity.this, CBCNewsreaderMainActivity.class);
+                startActivity(allTheNewsThatsFitToPrint);
             }
         });
     }
