@@ -66,7 +66,7 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public String getShortestMovie(SQLiteDatabase db){
+    public ArrayList getShortestMovie(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         Cursor c = db.rawQuery("SELECT movie_title, movie_runtime FROM movies_table", null);
         int movieTitleRow = c.getColumnIndex("movie_title");
@@ -93,9 +93,9 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
 
             }
         }
-        return lengths.get(1).toString();
+        return lengths;
     }
-    public String getLongeestMovie(SQLiteDatabase db){
+    public ArrayList getLongestMovie(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
         Cursor c = db.rawQuery("SELECT movie_title, movie_runtime FROM movies_table", null);
         int movieTitleRow = c.getColumnIndex("movie_title");
@@ -122,7 +122,7 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
 
             }
         }
-        return lengths.get(1).toString();
+        return lengths;
     }
     public int averageMovieLength(SQLiteDatabase db){
         ArrayList lengths = new ArrayList();
@@ -164,6 +164,65 @@ public class MovieDatabaseHelper extends SQLiteOpenHelper {
             totalLen = totalLen + (int) lengths.get(i);
         }
         return totalLen/lengths.size();
+    }
+
+    public ArrayList getNewestMovie(SQLiteDatabase db){
+        ArrayList lengths = new ArrayList();
+        Cursor c = db.rawQuery("SELECT movie_title, movie_year FROM movies_table", null);
+        int movieTitleRow = c.getColumnIndex("movie_title");
+        int movieRuntimeRow = c.getColumnIndex("movie_year");
+        for(c.moveToFirst();!c.isAfterLast(); c.moveToNext()){
+            int lenInt;
+            int lenInt2;
+            if(lengths.isEmpty()){
+
+                lengths.add(0, c.getString(movieTitleRow));
+                Log.i("addMovieTitle", c.getString(movieTitleRow));
+                lenInt = Integer.parseInt(c.getString(movieRuntimeRow).replaceAll("[^0-9]", ""));
+                lengths.add(1, lenInt);
+
+                Log.i("addRuntime", lengths.toString());
+            }
+            lenInt2 = Integer.parseInt(c.getString(movieRuntimeRow).replaceAll("[^0-9]", ""));
+            if(lenInt2 < (int) lengths.get(1)){
+                lengths.clear();
+                lengths.add(0, c.getString(movieTitleRow));
+                lengths.add(1, lenInt2);
+                lenInt = lenInt2;
+                Log.i("Comparison", lengths.toString());
+
+            }
+        }
+        return lengths;
+    }
+    public ArrayList getOldestMovie(SQLiteDatabase db){
+        ArrayList lengths = new ArrayList();
+        Cursor c = db.rawQuery("SELECT movie_title, movie_year FROM movies_table", null);
+        int movieTitleRow = c.getColumnIndex("movie_title");
+        int movieRuntimeRow = c.getColumnIndex("movie_year");
+        for(c.moveToFirst();!c.isAfterLast(); c.moveToNext()){
+            int lenInt;
+            int lenInt2;
+            if(lengths.isEmpty()){
+
+                lengths.add(0, c.getString(movieTitleRow));
+                Log.i("addMovieTitle", c.getString(movieTitleRow));
+                lenInt = Integer.parseInt(c.getString(movieRuntimeRow).replaceAll("[^0-9]", ""));
+                lengths.add(1, lenInt);
+
+                Log.i("addRuntime", lengths.toString());
+            }
+            lenInt2 = Integer.parseInt(c.getString(movieRuntimeRow).replaceAll("[^0-9]", ""));
+            if(lenInt2 > (int) lengths.get(1)){
+                lengths.clear();
+                lengths.add(0, c.getString(movieTitleRow));
+                lengths.add(1, lenInt2);
+                lenInt = lenInt2;
+                Log.i("Comparison", lengths.toString());
+
+            }
+        }
+        return lengths;
     }
 
 }

@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MovieInfo.MovieDetails"/>
+        <activity android:name=".MovieInfo.MovieMenu"/>
         <activity android:name=".MovieInfo.MovieStats"/>
         <activity android:name=".MovieInfo.MovieInfoMainActivity"/>
         <activity android:name=".MovieInfo.MyMovies"></activity>

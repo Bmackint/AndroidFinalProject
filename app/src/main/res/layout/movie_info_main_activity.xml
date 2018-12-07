@@ -6,19 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="380dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
 
+        <Toolbar
+            android:id="@+id/movie_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            >
+
+        </Toolbar>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Movie Search" />
+            android:text="Movie Search"
+            android:layout_below="@id/movie_toolbar"
+            />
+
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
@@ -29,14 +41,17 @@
             android:id="@+id/movie_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Movie Title" />
+            android:hint="Movie Title"
+            android:layout_below="@id/movie_toolbar"
+            />
 
         <Button
             android:id="@+id/movie_search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="@string/movie_search" />
+            android:text="@string/movie_search"
+            android:layout_below="@id/movie_toolbar"/>
 
 
         <LinearLayout

@@ -9,15 +9,21 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
+import com.example.billy.androidfinalproject.AppToolbar;
 import com.example.billy.androidfinalproject.R;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -63,6 +69,7 @@ public class MovieInfoMainActivity extends Activity {
    private ImageView movieImageView;
    private EditText movieSearchET;
 
+
     Button movieSearch;
     Button saveMovie;
     Button myMovies;
@@ -82,12 +89,20 @@ public class MovieInfoMainActivity extends Activity {
         moviePlotTxt = (TextView) findViewById(R.id.moviePlotTxt);
         movieSearchET = (EditText) findViewById(R.id.movie_search);
 
+
         pb = (ProgressBar) findViewById(R.id.progress_bar);
         movieSearch = (Button) findViewById(R.id.movie_search_button);
         saveMovie = (Button) findViewById(R.id.save_movie_button);
         myMovies = (Button) findViewById(R.id.my_movies_button);
         clearSearch = (Button) findViewById(R.id.clear_movie_search_button);
 
+
+
+
+        //AppToolbar movieToolbar = (AppToolbar) findViewById(R.layout.)
+        Toolbar movieToolbar = (Toolbar) findViewById(R.id.movie_toolbar);
+       // movieToolbar.set
+        setActionBar(movieToolbar);
 
         movieSearch.setOnClickListener((e)->{
             MovieQuery query= new MovieQuery();
@@ -238,6 +253,7 @@ public class MovieInfoMainActivity extends Activity {
         }
     }
     public void clearSearch(){
+        movieSearchET.setText("");
         movieImageView.setImageBitmap(null);
         movieTitleTxt.setText("");
         movieYearTxt.setText("");
@@ -250,6 +266,9 @@ public class MovieInfoMainActivity extends Activity {
      * @author Terry E-mail: yaoxinghuo at 126 dot com
      * @version create: 2010-10-21 ??01:40:03
      */
+
+
+
 
     public boolean fileExistance(String fname){
         File file = getBaseContext().getFileStreamPath(fname);

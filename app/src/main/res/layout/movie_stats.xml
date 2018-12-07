@@ -24,6 +24,14 @@
         android:layout_height="wrap_content"
         />
     <TextView
+        android:id="@+id/shortest_year_stat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/longest_year_stat"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+    <TextView
         android:id="@+id/average_year_stat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
